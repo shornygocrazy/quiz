@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    
+    <!-- Useful meta tags -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    
+    <title>Super Quiz</title>
+</head>
+<body>
+
+    <div class="page">
+
+    	<header>
+    		<div class="header__logo">Super Quiz</div>
+    		<nav class="nav">
+    			<ul class="nav__list">
+    				<li class="nav__item">
+    					<a class="nav__link active" href="#welcome">Главная</a>
+    				</li>
+    				<li class="nav__item">
+    					<a class="nav__link" href="#test">Квиз</a>
+    				</li>
+    				<li class="nav__item">
+    					<a class="nav__link" href="#review">Отзывы</a>
+    				</li>
+    				<li class="nav__item">
+    					<a class="nav__link has-subnav" href="#">Не главная</a>
+    					<ul class="subnav">
+    						<li class="btn btn--subnav">
+    							<a href="#">Подпункт</a>
+    						</li>
+    						<li class="btn btn--subnav">
+    							<a href="#">Еще подпункт</a>
+    						</li>
+    						<li class="btn btn--subnav">
+    							<a href="#">И еще один подпункт</a>
+    						</li>
+    				    </ul>
+    				</li>
+    			</ul>
+    		</nav>
+    		<div class="header__contact">
+    			<button class="btn" data-modal="contact-modal">Связаться с нами</button>
+    			<div class="header__icon">
+    				<img src="../assets/images/logo-tt.png" alt="logo-tt.png">
+    				<img src="../assets/images/logo-vk.png" alt="logo-vk.png">
+    				<img src="../assets/images/logo-tg.png" alt="logo-tg.png">
+    			</div>
+    		</div>
+    	</header>
+
+    	<div class="main">
+    		
+    		<div class="welcome__block" id="welcome">
+    			<img class="welcome__img" src="../assets/images/quetions.png" alt="quetions.png">
+    			<img class="welcome__img welcome__img--rotate" src="../assets/images/quetions.png" alt="quetions.png">
+    			<div class="welcome__info">
+    				<h1 class="title">Это Супер-квиз!</h1>
+    				<p class="p">Пройди квиз, и будешь счастлив. Этот квиз предназначен для тех людей, которые любят проходить тесты!</p>
+    				<button class="btn btn--welcome" onclick="document.location.href='#test'">Пройти супер-квиз</button>
+    			</div>
+    		</div>
+    		<div class="emoji">
+    			<div class="emoji__item">😋 Восхитительно</div>
+    			<div class="emoji__item">😎 Лучше не бывает</div>
+    			<div class="emoji__item">😍 Где найти еще?</div>
+    			<div class="emoji__item">🤩 В натуре четко!</div>
+    			<div class="emoji__item">😍 Круто</div>
+    		</div>
+    		<div class="test" id="test"> <!-- test -->
+    			<div class="test__list">
+    				<p class="p p--list">Какие виды тестов вам нравятся?</p>
+    				<span class="p p--list" id="test__list"></span>
+    			</div>
+    			<div class="test__info" id="test-info"> <!-- test__info -->
+    				<h1 class="title title--test">Какие виды тестов вам нравятся?</h1>
+    				<p class="p p--test">Многие из нас хоть раз попадались на эту удочку — хочешь пройти всего один тест из интернета, и вдруг понимаешь, что пролетело полдня.</p>
+    				<div class="test__type">
+    					<a class="test__choose has-choose" data-choose="test__sign--1"><img class="test__sign" id="test__sign--1" src="../assets/images/x.png" alt="x.png">На темперамент</a>
+    					<a class="test__choose has-choose" data-choose="test__sign--2"><img class="test__sign" id="test__sign--2" src="../assets/images/x.png" alt="x.png">Кто я из вселенной Марвел</a>
+    					<a class="test__choose has-choose" data-choose="test__sign--3"><img class="test__sign" id="test__sign--3" src="../assets/images/x.png" alt="x.png">Увидел это</a>
+    					<a class="test__choose has-choose" data-choose="test__sign--4"><img class="test__sign" id="test__sign--4" src="../assets/images/x.png" alt="x.png">Мое тотемное животное</a>
+    					<a class="test__choose has-choose" data-choose="test__sign--5"><img class="test__sign" id="test__sign--5" src="../assets/images/x.png" alt="x.png">На IQ</a>
+    					<a class="test__choose has-choose" data-choose="test__sign--6"><img class="test__sign" id="test__sign--6" src="../assets/images/x.png" alt="x.png">На словарный запас</a>
+    					<a class="test__choose has-choose" data-choose="test__sign--7"><img class="test__sign" id="test__sign--7" src="../assets/images/x.png" alt="x.png">На логическое мышление</a>
+    					<a class="test__choose has-choose" data-choose="test__sign--8"><img class="test__sign" id="test__sign--8" src="../assets/images/x.png" alt="x.png">На уровень интеллекта</a>
+    				</div>
+    				<button class="btn btn--welcome btn--test" data-complete="test-complete">Продолжить</button>
+    			</div> <!-- /test__info -->
+    		
+    			<div class="test__complete" id="test-complete"> <!-- test__complete -->
+    				<h1 class="title">😉👍</h1>
+    				<h1 class="title title--modal">Спасибо за ответы! <br>
+    				Заполните форму ниже</h1>
+    				<p class="p p--test p--modal">Ваше мнение важно для нас. Прикрепите фото с Вашей любимой картинкой и оставьте комментарий насколько понравился Вам тест.</p>
+    				<textarea class="modal__input modal__input--complete" id="test__textarea" placeholder="Ваше мнение сюда"></textarea>
+    				<select class="p" name="" id="">
+    					<option value="">Очень понравился</option>
+    					<option value="">Не понравился</option>
+    					<option value="">Пройду еще раз</option>
+    					<option value="">Посоветую пройти всем</option>
+    				</select>
+    				<div class="test__nav">
+    					<button class="btn btn--complete" data-complete="test-info">Назад</button>
+    					<button class="btn" data-complete="test-info">Продолжить</button>
+    				</div>
+    			</div> <!-- test__complete -->
+    		</div> <!-- /test -->
+    		
+    		<div class="review" id="review"> <!-- review -->
+    			<div class="review__slider"> <!-- review__slider -->
+    				<div class="review__btn review__btn--left" data-left__slider>
+    					<img class="review__arrow review__arrow--left" src="../assets/images/arrow.png" alt="arrow.png">
+    				</div>
+    				<div class="review__btn" data-right__slider>
+    					<img class="review__arrow" src="../assets/images/arrow.png" alt="arrow.png">
+    				</div>
+    					<div class="review__item">
+    					<img class="review__bg" src="../assets/images/review-bg-1.png" alt="review-bg-1.png">
+    					<div class="review__info">
+    						<img class="review__ava"  src="../assets/images/review-ava-2.png" alt="review-ava-2.png">
+    						<h1>Тимур Никитенко</h1>
+    						<p>Мне очень понравился тест.</p>
+    					</div>
+    				</div>
+    				<div class="review__item">
+    					<img class="review__bg" src="../assets/images/review-bg-2.png" alt="review-bg-2.png">
+    					<div class="review__info">
+    						<img class="review__ava"  src="../assets/images/review-ava-1.png" alt="review-ava-1.png">
+    						<h1>Андрей Пархимович</h1>
+    						<p>В целом, конечно, постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.</p>
+    					</div>
+    				</div>
+    				<div class="review__item">
+    					<img class="review__bg" src="../assets/images/review-bg-1.png" alt="review-bg-1.png">
+    					<div class="review__info">
+    						<img class="review__ava"  src="../assets/images/review-ava-2.png" alt="review-ava-2.png">
+    						<h1>Тимур Никитенко</h1>
+    						<p>Господа, глубокий уровень погружения в значительной степени обусловливает важность глубокомысленных рассуждений.</p>
+    					</div>
+    				</div>
+    				<div class="review__item">
+    					<img class="review__bg" src="../assets/images/review-bg-3.png" alt="review-bg-3.png">
+    					<div class="review__info">
+    						<img class="review__ava"  src="../assets/images/review-ava-3.png" alt="review-ava-3.png">
+    						<h1>Артур Усович</h1>
+    						<p>Задача организации, в особенности же убеждённость некоторых оппонентов предопределяет высокую востребованность благоприятных перспектив.</p>
+    					</div>
+    				</div>
+    				<div class="review__item">
+    					<img class="review__bg" src="../assets/images/review-bg-2.png" alt="review-bg-2.png">
+    					<div class="review__info">
+    						<img class="review__ava"  src="../assets/images/review-ava-1.png" alt="review-ava-1.png">
+    						<h1>Егор Грей</h1>
+    						<p>Разнообразный и богатый опыт говорит нам, что высокое качество позиционных исследований предопределяет высокую востребованность кластеризации усилий.</p>
+    					</div>
+    				</div>
+    			</div> <!-- /review__slider -->
+    		</div> <!-- /review -->
+    	</div>
+
+    	<footer>
+    		<div class="footer__contact">
+    			<div class="footer__info">
+    				<div class="footer__item">
+    					<p class="p p--test">Телефон</p>
+    					<a href="tel:+375123456789">+375 12 345 67 89</a>
+    				</div>
+    				<div class="footer__item">
+    					<p class="p p--test">Email</p>
+    					<a href="mailto:ourmail@gmail.com">ourmail@gmail.com</a>
+    				</div>
+    			</div>
+    			<div class="footer__social">
+    				<div class="footer__icon">
+    					<img src="../assets/images/logo-tt.png" alt="logo-tt.png">
+    				</div>
+    				<div class="footer__icon footer__icon--vk">
+    					<img src="../assets/images/logo-vk.png" alt="logo-vk.png">
+    				</div>
+    				<div class="footer__icon footer__icon--tg">
+    					<img src="../assets/images/logo-tg.png" alt="logo-tg.png">
+    				</div>
+    			</div>
+    		</div>
+    		<div class="footer__logo">Super Quiz</div>
+    	</footer>
+    	<div class="modal" id="contact-modal"> <!-- modal -->
+    		<div class="modal__content"> <!-- modal__content -->
+    			<a href="#" class="modal__close">
+    				<img src="../assets/images/x.png" alt="x.png">
+    			</a>
+    			<h1 class="title title--modal">Заполните контактные данные</h1>
+    			<p class="p p--test p--modal">Пройди квиз, и будешь счастлив. Этот квиз предназначен для тех людей, которые любят проходить тесты!</p>
+    			<form>
+    				<input class="modal__input" type="text" placeholder="Ваше имя">
+    				<input class="modal__input" type="text" placeholder="Фамилия">
+    				<div class="modal__file">
+    					<textarea class="modal__input modal__input--textarea" type="text" required="" placeholder="Ваш комментарий" data-textarea></textarea>
+    					<label class="add-modal__file">
+    						<p class="p p--modal">Приложить файлы</p>
+    						<img src="../assets/images/add-file.png" alt="add-file.png">
+    						<input type="file" id="add-modal-file">
+    					</label>
+    					<div class="modal__trigger" id="modal-trigger">
+    						<img src="../assets/images/trigger.png" alt="trigger.png">
+    					</div>
+    				</div>
+    				<p class="p p--test p--modal">Этот квиз предназначен для тех людей, которые любят проходить тесты!</p>
+    				<div class="modal__choose">
+    					<span class="has-choose has-choose--modal">
+    						<input class="modal__check has-choose has-choose--modal" type="radio" name="quiz">Не знаю
+    					</span>
+    					<span class="has-choose has-choose--modal">
+    						<input class="modal__check has-choose has-choose--modal" type="radio" name="quiz">Увидел это</span>
+    					<span class="has-choose has-choose--modal">
+    						<input class="modal__check has-choose has-choose--modal" type="radio" name="quiz">Вон то</span>
+    					<span class="has-choose has-choose--modal">
+    						<input class="modal__check has-choose has-choose--modal" type="radio" name="quiz">Вон то</span>
+    					<span class="has-choose has-choose--modal">
+    						<input class="modal__check has-choose has-choose--modal" type="radio" name="quiz">Увидел это</span>
+    					<span class="has-choose has-choose--modal">
+    						<input class="modal__check has-choose has-choose--modal" type="radio" name="quiz">Не знаю</span>
+    				</div>		
+    				<button type="submit" class="btn btn--modal" data-modal--submit="modal-trigger">Продолжить</button>
+    			</form>
+    		</div> <!-- /modal__content -->
+    	</div> <!-- /modal -->
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

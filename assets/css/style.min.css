@@ -1,0 +1,696 @@
+@import "https://fonts.googleapis.com/css?family=Raleway";
+@import "https://fonts.googleapis.com/css?family=Neue Machina";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #F2F2F2;
+  font-size: 20px;
+  font-family: "Raleway";
+  color: #000;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Blocks*/
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 3.2em;
+  border-bottom: 1px solid #F2F2F2;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.header__logo {
+  width: 20%;
+  font-size: 1.8em;
+  line-height: 1.7em;
+  font-weight: 700;
+  font-family: "Neue Machina";
+}
+@media (max-width: 16em) {
+  .header__logo {
+    width: 50%;
+    font-size: 1.2em;
+    text-align: center;
+  }
+}
+
+.nav {
+  width: 40%;
+  height: 100%;
+}
+@media (max-width: 16em) {
+  .nav {
+    display: none;
+  }
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.nav__item {
+  position: relative;
+}
+.nav__item:hover > .subnav {
+  display: block;
+}
+
+.nav__link {
+  display: block;
+  margin: 0.7em 0.5em 0.5em 0.5em;
+  color: #000;
+  line-height: calc(3.2em - 0.4em);
+  font-weight: 500;
+}
+.nav__link.active {
+  border-bottom: 3px solid #000;
+}
+
+.subnav {
+  position: absolute;
+  z-index: 2;
+  display: none;
+  width: 290px;
+  top: 90%;
+  left: 0;
+}
+.subnav li {
+  margin: 0.25em;
+}
+.subnav a {
+  color: #FFF;
+}
+
+.header__contact {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+@media (max-width: 16em) {
+  .header__contact {
+    display: none;
+  }
+}
+
+.header__icon {
+  display: flex;
+  align-items: center;
+}
+.header__icon img {
+  margin: 0.25em;
+  cursor: pointer;
+}
+
+.welcome__block {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 3.2em);
+  background: #FFF;
+  border-radius: 0 0 1.6em 1.6em;
+}
+
+.welcome__img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.welcome__img--rotate {
+  left: 0;
+  transform: scaleX(-1);
+}
+
+.welcome__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6em;
+}
+
+.has-choose {
+  cursor: pointer;
+  padding: 0.2em 1.3em;
+  gap: 0.5em;
+  border: 2px solid #000;
+  border-radius: 1em;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  font-weight: 500;
+}
+.has-choose--modal {
+  display: flex;
+  align-items: center;
+  margin: 0.15em 0.25em;
+  padding: 0.4em 1em;
+  font-size: 1em;
+  line-height: 1em;
+}
+
+.modal {
+  position: fixed;
+  z-index: 5;
+  overflow: visible;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #F2F2F2;
+}
+.modal.show {
+  display: flex;
+}
+
+.modal__content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 33.8em;
+  padding: 1em;
+  border-radius: 1.6em;
+  background: #FFF;
+}
+.modal__content h1 {
+  width: 50%;
+}
+.modal__content p {
+  margin: 0.5em 0;
+}
+.modal__content button {
+  margin-top: 0.5em;
+}
+
+.modal__close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5em;
+  height: 1.5em;
+  right: 1em;
+  border: 2px solid #000;
+  border-radius: 0.4em;
+  transition: 0.15s ease;
+}
+.modal__close img {
+  width: 0.75em;
+  height: 0.75em;
+}
+.modal__close:hover {
+  border-color: #9E00FF;
+  background: #9E00FF;
+}
+
+.modal__input {
+  width: 45%;
+  height: 1.4em;
+  padding: 0.4em 0;
+  gap: 0.5em;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #000;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 1.5em;
+  line-height: 1.4em;
+  font-weight: 500;
+  font-family: "Raleway";
+}
+.modal__input--textarea {
+  width: 55%;
+  resize: none;
+  margin: 0;
+  padding: 0.6em 0 0 0;
+  border: none;
+}
+.modal__input--complete {
+  resize: none;
+  margin: 0.4em 0 0.4em 1.5em;
+  font-size: 1.25em;
+}
+
+.modal__file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 2px solid #000;
+}
+
+.add-modal__file {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  width: 11.5em;
+  height: 1.2em;
+  padding: 0.3em 0.4em;
+  gap: 0.5em;
+  border-radius: 0.4em;
+  background: #000;
+  color: #FFF;
+}
+.add-modal__file p {
+  margin: 0;
+}
+.add-modal__file input {
+  display: none;
+}
+
+.modal__trigger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 1.8em;
+  height: 1.8em;
+  background: #FF004C;
+  border-radius: 0.4em;
+}
+.modal__trigger.show {
+  display: flex;
+}
+
+.modal__choose {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 5em;
+}
+
+.modal__check {
+  width: 1em;
+  height: 1em;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.6em 1.6em;
+  gap: 0.5em;
+  border: none;
+  border-radius: 0.8em;
+  background: #000;
+  color: #FFF;
+  font-size: 1em;
+  line-height: 1.1em;
+  font-weight: 500;
+  transition: 0.15s ease;
+}
+.btn--welcome {
+  padding: 0.6em 1.6em;
+}
+.btn--test {
+  gap: 0.45em;
+}
+.btn:hover {
+  background: #9E00FF;
+}
+.btn--subnav {
+  padding: 0.6em;
+}
+.btn--modal {
+  width: 100%;
+}
+.btn--complete {
+  padding: 0.5em 1.6em 0.4em;
+  border: 2px solid #000;
+  background: #FFF;
+  color: #000;
+}
+.btn--complete:hover {
+  color: #FFF;
+}
+
+.review__btn {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 5em;
+  height: 5em;
+  right: 0.75em;
+  border-radius: 1.6em;
+  box-shadow: 0 1.2em 1.75em 0 rgba(158, 0, 255, 0.3);
+  background: #FFF;
+}
+.review__btn--left {
+  left: 0.75em;
+}
+
+.review__arrow {
+  width: 0.8em;
+  height: 1.6em;
+}
+.review__arrow--left {
+  rotate: 180deg;
+}
+
+.emoji {
+  display: flex;
+  justify-content: center;
+  gap: 0.4em;
+  margin: 0.5em 0;
+}
+
+.emoji__item {
+  padding: 0.4em 0.8em;
+  gap: 0.8em;
+  border-radius: 9999px;
+  background: #FFF;
+  font-size: 1em;
+  line-height: 1.1em;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 4.8em;
+  font-weight: 700;
+  font-family: "Neue Machina";
+}
+.title--test {
+  font-size: 3.6em;
+}
+.title--modal {
+  font-size: 2.75em;
+}
+
+.p {
+  width: 65%;
+  font-weight: 500;
+  font-size: 1em;
+  text-align: center;
+}
+.p--test {
+  text-align: left;
+}
+.p--modal {
+  width: 90%;
+}
+.p--list {
+  color: #FFF;
+  font-size: 0.8em;
+  font-weight: 700;
+  text-align: left;
+}
+
+.test {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 5em 0 0 0;
+}
+
+.test__list {
+  width: 18%;
+  height: 2em;
+  padding: 0.5em 1.2em;
+  background: #000;
+  border-radius: 0 1.6em 1.6em 0;
+}
+.test__list span {
+  color: #FFF;
+  font-weight: 500;
+}
+
+.test__info, .test__complete {
+  width: 77%;
+  background: #FFF;
+  border-radius: 1.6em;
+  box-shadow: 0 -0.35em #E9C4FF, 0 -0.7em #F0D9FF;
+}
+.test__info.hide, .test__complete.hide {
+  display: none;
+}
+.test__info p, .test__complete p {
+  width: 60%;
+}
+.test__info .title, .test__info .p, .test__info .test__type, .test__info .btn, .test__complete .title, .test__complete .p, .test__complete .test__type, .test__complete .btn {
+  margin: 3.2rem 0 3.2rem 3.2rem;
+}
+
+.test__info {
+  display: block;
+}
+
+.test__complete {
+  display: none;
+  flex-direction: column;
+}
+.test__complete.show {
+  display: flex;
+}
+.test__complete select {
+  width: 14.75em;
+  height: 2.35em;
+  border: 2px solid #000;
+  border-radius: 0.8em;
+}
+
+.test__type {
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  gap: 0.4em;
+}
+
+.test__choose {
+  display: flex;
+  align-items: center;
+}
+.test__choose.show {
+  background: #000;
+  color: #FFF;
+}
+
+.test__sign {
+  display: none;
+  width: 0.75em;
+  height: 0.75em;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background: #FFF;
+}
+.test__sign.show {
+  display: block;
+}
+
+.review {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  max-width: 70em;
+  height: 30em;
+}
+
+.review__slider {
+  display: flex;
+  align-items: center;
+  width: 90em;
+  height: 100%;
+}
+.review__slider.left__slider {
+  margin-left: 22em;
+}
+.review__slider.right__slider {
+  margin-right: 22em;
+}
+
+.review__item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 17.5em;
+  height: 23.25em;
+  padding: 0 0.4em;
+}
+.review__item .review__bg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.6em;
+  gap: 1em;
+}
+
+.review__info {
+  position: absolute;
+  width: 92%;
+  bottom: 0.35em;
+  border-radius: 1.2em;
+  gap: 0.8em;
+  text-align: center;
+  background: #FFF;
+}
+.review__info .review__ava {
+  position: relative;
+  width: 4em;
+  margin-top: -2.25em;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+}
+.review__info h1 {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  font-weight: 700;
+  text-align: center;
+}
+.review__info p {
+  margin: 1em;
+  font-size: 0.8em;
+  line-height: 1em;
+  font-weight: 500;
+  text-align: left;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 12.65em;
+  border-radius: 1.6em 1.6em 0 0;
+  background: #000;
+  color: #FFF;
+}
+
+.footer__contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 83%;
+  height: 10em;
+  padding-left: 0.5em;
+}
+
+.footer__info {
+  display: flex;
+  justify-content: space-around;
+  width: 95%;
+}
+
+.footer__item a {
+  cursor: pointer;
+  color: #FFF;
+  text-decoration: underline;
+  font-size: 2.4em;
+  line-height: 1.3em;
+  font-weight: 700;
+  font-family: "Neue Machina";
+}
+
+.footer__social {
+  display: flex;
+  justify-content: space-around;
+  width: 95%;
+}
+
+.footer__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 17em;
+  height: 3.5em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  mix-blend-mode: lighten;
+}
+.footer__icon img {
+  width: 2.5em;
+}
+.footer__icon--vk {
+  background: rgb(77, 118, 161);
+}
+.footer__icon--tg {
+  background: rgb(52, 170, 223);
+}
+
+.footer__logo {
+  display: flex;
+  align-items: flex-end;
+  width: 17%;
+  height: 100%;
+  font-size: 1.6em;
+  line-height: 1.5em;
+  font-weight: 700;
+  font-family: "Neue Machina";
+}
